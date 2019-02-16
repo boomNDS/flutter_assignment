@@ -17,6 +17,7 @@ class RegisterFormState extends State<RegisterForm>{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: Text("REGISTER"),
         centerTitle: true,
@@ -78,10 +79,19 @@ class RegisterFormState extends State<RegisterForm>{
                 },
             ),
             RaisedButton(
-              child: Text("Continue"),
+              child: Text("Continue", style: TextStyle(color: Colors.white)),
+              color: Colors.blue,
               onPressed: (){
-                _formKey.currentState.validate();
-                if(_id == "admin"){
+                // _formKey.currentState.validate();
+                if(_formKey.currentState.validate() == false){
+                  print("กรุณาระบุข้อมูลให้ครบถ้วน");
+                  _scaffoldKey.currentState.showSnackBar(
+                    SnackBar(
+                    content: Text('กรุณาระบุข้อมูลให้ครบถ้วน'),
+                    duration: Duration(seconds: 3),
+                    )
+                  );
+                }else if(_id == "admin"){
                   print("user นี้มีอยู่ใน ระบบแล้ว");
                   _scaffoldKey.currentState.showSnackBar(
                     SnackBar(
