@@ -66,7 +66,7 @@ class LoginformState extends State<Loginform>{
               onPressed: (){
                 // _formKey.currentState.validate();
                 if(_formKey.currentState.validate() == false){
-                  print("กรุณา ระบุuser or password");
+                  print("กรุณาระบุ user or password");
                   _scaffoldKey.currentState.showSnackBar(
                     SnackBar(
                     content: Text('กรุณา ระบุuser or password'),
