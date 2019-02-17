@@ -66,14 +66,14 @@ class LoginformState extends State<Loginform>{
               onPressed: (){
                 // _formKey.currentState.validate();
                 if(_formKey.currentState.validate() == false){
-                  print("กรุณาระบุ user or password");
+                  print("กรุณาระบุ  user or password");
                   _scaffoldKey.currentState.showSnackBar(
                     SnackBar(
                     content: Text('กรุณา ระบุuser or password'),
                     duration: Duration(seconds: 3),
                     )
                   );
-                }else if(_id == "admin" && _pass == "admin"){
+                }else if(_id != "admin" && _pass != "admin"){
                   // Navigator.pushNamed(context, "/home");
                   print("user or password ไม่ถูกต้อง");
                   _scaffoldKey.currentState.showSnackBar(
